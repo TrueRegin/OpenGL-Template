@@ -6,11 +6,22 @@
 struct Config {
 	const int WIDTH;
 	const int HEIGHT;
-	const char* TITLE = "OpenGL Template";
-	const char* VERTEX_START_STRING = "$vertex";
-	const char* FRAGMENT_START_STRING = "$fragment";
+	const char* TITLE;
+	const char* VERTEX_START_STRING;
+	const char* FRAGMENT_START_STRING;
+	const glm::vec3 BG_COLOR;
+	const float SPEED;
 
-	const glm::vec3 BG_COLOR = {1.0f, 0.3f, 0.2f};
+	Config()
+	: 
+		WIDTH(640),
+		HEIGHT(480), 
+		TITLE("OpenGL Template"), 
+		VERTEX_START_STRING("$vertex"), 
+		FRAGMENT_START_STRING("$fragment"), 
+		BG_COLOR({1.0f, 0.3f, 0.5f}), 
+		SPEED(5)
+	{}
 };
 
 Config& c();

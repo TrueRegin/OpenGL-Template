@@ -36,7 +36,7 @@ int init(int width, int height, const char* title) {
 	return (int) window;
 }
 
-void programLoop(GLFWwindow* window, void(*loop)()) {
+void programLoop(GLFWwindow* window, std::function<void()> const& loop) {
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
         glClearColor(c().BG_COLOR.r, c().BG_COLOR.g, c().BG_COLOR.b, 1.0f);
