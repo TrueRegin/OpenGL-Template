@@ -27,7 +27,7 @@ public:
 	ShaderProgram(const char* vertexPath, const char* fragmentPath);
 	~ShaderProgram();
 
-	void setUniform1f(const char* name, float& val);
+	void setUniform1f(const char* name, float val);
 	void setUniformMat4fv(const char* name, glm::mat4&);
 	void Bind();
 	void Unbind();

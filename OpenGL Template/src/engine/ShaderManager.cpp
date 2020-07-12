@@ -139,7 +139,7 @@ void ShaderProgram::Unbind() {
 	glUseProgram(0);
 }
 
-void ShaderProgram::setUniform1f(const char* name, float& val) {
+void ShaderProgram::setUniform1f(const char* name, float val) {
 	glUniform1fv(getUniform(name), 1, &val);
 }
 
