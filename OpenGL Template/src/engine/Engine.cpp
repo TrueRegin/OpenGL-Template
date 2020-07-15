@@ -26,9 +26,7 @@ void loadImGUI(GLFWwindow* window) {
 		PROJ_NO_WINDOW_ERROR
 		PROJ_GLAD_LOAD_ERROR
 */
-int init(int width, int height, const char* title) {
-    GLFWwindow* window;
-
+int init(int width, int height, const char* title, GLFWwindow*& window) {
     // GLFW Init
     if (!glfwInit()) {
         std::cout << "GLFW load error, terminating!" << std::endl;

@@ -26,7 +26,8 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 }
 
 int main() {
-	GLFWwindow* window = (GLFWwindow*) init(c().WIDTH, c().HEIGHT, c().TITLE);
+	GLFWwindow* window;
+	init(c().WIDTH, c().HEIGHT, c().TITLE, window);
 	if ((int)window < 0) return -1;
 
 	{
