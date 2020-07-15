@@ -87,12 +87,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(projectDir)src; $(projectDir)src/engine; $(projectDir)src/utils; $(solutionDir)Dependencies/glfw/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(projectDir)src;$(projectDir)src/engine;$(projectDir)src/utils;$(solutionDir)Dependencies/glfw-32/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw/lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw-32/lib-vc2019</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -102,12 +102,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(projectDir)src; $(projectDir)src/engine; $(projectDir)src/utils; $(solutionDir)Dependencies/glfw/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(projectDir)src;$(projectDir)src/engine;$(projectDir)src/utils;$(solutionDir)Dependencies/glfw-64/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw/lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw-64/lib-vc2019</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -119,14 +119,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(projectDir)src; $(projectDir)src/engine; $(projectDir)src/utils; $(solutionDir)Dependencies/glfw/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(projectDir)src;$(projectDir)src/engine;$(projectDir)src/utils;$(solutionDir)Dependencies/glfw-32/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw/lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw-32/lib-vc2019</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -138,20 +138,21 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(projectDir)src; $(projectDir)src/engine; $(projectDir)src/utils; $(solutionDir)Dependencies/glfw/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(projectDir)src;$(projectDir)src/engine;$(projectDir)src/utils;$(solutionDir)Dependencies/glfw-64/include;$(solutionDir)Dependencies/glad/include;$(projectDir)src/vendors;$(projectDir)src/vendors/imgui</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw/lib-vc2019</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependencies/glfw-64/lib-vc2019</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Config.cpp" />
     <ClCompile Include="src\engine\Engine.cpp" />
+    <ClCompile Include="src\engine\Input.cpp" />
     <ClCompile Include="src\engine\Objects\Mesh.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\engine\ShaderManager.cpp" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="src\Config.h" />
     <ClInclude Include="src\engine\Engine.h" />
+    <ClInclude Include="src\engine\Input.h" />
     <ClInclude Include="src\engine\Objects\Mesh.h" />
     <ClInclude Include="src\engine\ShaderManager.h" />
     <ClInclude Include="src\engine\TextureManager.h" />

@@ -9,7 +9,7 @@ int y = 0;
 int velX = 0;
 int velY = 0;
 
-void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
 	if (key == GLFW_KEY_D) {
 		velX = c().SPEED;
 	}
@@ -36,8 +36,8 @@ int main() {
 		glm::mat4 projMat = glm::ortho(0.f, 640.f, 0.f, 480.f, -1.f, 1.f);
 		glm::mat4 modelMat = glm::mat4(1.0f);
 		modelMat = glm::translate(modelMat, glm::vec3(200.f, 100.f, 0.0f));
-		shader.setUniformMat4fv("u_ProjMat", projMat);
-		shader.setUniformMat4fv("u_ModelMat", modelMat);
+		shader.setUniformMat4("u_ProjMat", projMat);
+		shader.setUniformMat4("u_ModelMat", modelMat);
 
 		// Creating the gray "player" square
 		const float vertices[] = {
@@ -60,12 +60,13 @@ int main() {
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*) 0);
 		glEnableVertexAttribArray(0);
 
-		// Setting the keyboard callback
-		glfwSetKeyCallback(window, keyCallback);
 		// Getting the ImGUI IO
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
 		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+
+		// Setting Callbacks
+		glfwSetKeyCallback(window, key_callback);
 
 		// Main program loop
 		programLoop(window, [&shader, &modelMat]() {
@@ -74,7 +75,7 @@ int main() {
 			y += velY;
 
 			modelMat = glm::translate(glm::mat4(1.0f), glm::vec3((float) x, (float) y, 0.0f));
-			shader.setUniformMat4fv("u_ModelMat", modelMat);
+			shader.setUniformMat4("u_ModelMat", modelMat);
 
 			ImGui::Begin("Default Window");
 			ImGui::Text("You can edit this window in Main.cpp in the program loop, try experimenting with ImGUI");

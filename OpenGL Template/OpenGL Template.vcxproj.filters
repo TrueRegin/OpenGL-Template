@@ -60,6 +60,9 @@
     <ClCompile Include="src\vendors\imgui\examples\imgui_impl_glfw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\engine\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Config.h">
@@ -948,6 +951,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\vendors\imgui\examples\imgui_impl_glfw.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\Input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
