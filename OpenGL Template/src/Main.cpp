@@ -6,23 +6,41 @@
 
 int x = 0;
 int y = 0;
-int velX = 0;
-int velY = 0;
+int sVel = 0;
+int fVel = 0;
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	if (key == GLFW_KEY_D) {
-		velX = c().SPEED;
+	if (action == GLFW_PRESS) {
+		if (key == GLFW_KEY_W) {
+			fVel = c().SPEED;
+		}
+		if (key == GLFW_KEY_S) {
+			fVel = -c().SPEED;
+		}
+
+		if (key == GLFW_KEY_D) {
+			sVel = c().SPEED;
+		}
+		if (key == GLFW_KEY_A) {
+			sVel = -c().SPEED;
+		}
 	}
-	if (key == GLFW_KEY_A) {
-		velX = -c().SPEED;
+	if (action == GLFW_RELEASE) {
+		if (key == GLFW_KEY_W && fVel > 0) {
+			fVel = 0;
+		}
+		if (key == GLFW_KEY_S && fVel < 0) {
+			fVel = 0;
+		}
+
+		if (key == GLFW_KEY_D && sVel > 0) {
+			sVel = 0;
+		}
+		if (key == GLFW_KEY_A && sVel < 0) {
+			sVel = 0;
+		}
 	}
 
-	if (key == GLFW_KEY_W) {
-		velY = c().SPEED;
-	}
-	if (key == GLFW_KEY_S) {
-		velY = -c().SPEED;
-	}
 }
 
 int main() {
@@ -72,8 +90,8 @@ int main() {
 		// Main program loop
 		programLoop(window, [&shader, &modelMat]() {
 			glDrawArrays(GL_TRIANGLES, 0, sizeof(vertices) / (3 * sizeof(float)));
-			x += velX;
-			y += velY;
+			x += sVel;
+			y += fVel;
 
 			modelMat = glm::translate(glm::mat4(1.0f), glm::vec3((float) x, (float) y, 0.0f));
 			shader.setUniformMat4("u_ModelMat", modelMat);
