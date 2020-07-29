@@ -1,10 +1,12 @@
 #version 460 core
 
-layout (location = 0) in vec3 pos;
-uniform mat4 u_ProjMat;
-uniform mat4 u_ModelMat;
-//uniform mat4 u_ViewMat;
+layout (location = 0) in vec3 i_pos;
+layout (location = 1) in vec2 i_tex_coords;
+uniform mat4 u_Project_View_Model_Matrix;
+
+out vec2 texCoord;
 
 void main() {
-	gl_Position = u_ProjMat * u_ModelMat * vec4(pos, 1.0);
+	gl_Position = u_Project_View_Model_Matrix * vec4(i_pos, 1.0);
+	texCoord = i_tex_coords;
 }

@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+# Release and Debug Specific Files
+**/x64/Debug
+**/Release
+**/Debug

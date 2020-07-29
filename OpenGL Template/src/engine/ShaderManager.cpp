@@ -105,13 +105,13 @@ ShaderSourceCode loadShaderFromTwoFiles(const char* vertPath, const char* fragPa
 	ShaderProgram Class
 */
 ShaderProgram::ShaderProgram(const char* shaderPath)
-	: m_SingleFileShader(true), m_Paths({shaderPath, "", "" }), m_Uniforms()
+	: m_SingleFileShader(true), m_Paths({ shaderPath, "", "" }), m_Uniforms()
 {
 	ShaderSourceCode sourceCode = loadShaderFromOneFile(shaderPath);
-	m_ID =  createShader(sourceCode);
+	m_ID = createShader(sourceCode);
 }
 ShaderProgram::ShaderProgram(const char* vertexPath, const char* fragmentPath)
-	: m_SingleFileShader(false), m_Paths({ "", vertexPath, fragmentPath})
+	: m_SingleFileShader(false), m_Paths({ "", vertexPath, fragmentPath })
 {
 	ShaderSourceCode sourceCode = loadShaderFromTwoFiles(vertexPath, fragmentPath);
 	m_ID = createShader(sourceCode);
@@ -144,52 +144,52 @@ void ShaderProgram::setUniform1f(const char* name, float& val) {
 	glUniform1fv(getUniform(name), 1, &val);
 }
 void ShaderProgram::setUniform2f(const char* name, glm::vec2& vec) {
-	glUniform2fv(getUniform(name), 2, glm::value_ptr(vec));
+	glUniform2fv(getUniform(name), 1, glm::value_ptr(vec));
 }
 void ShaderProgram::setUniform3f(const char* name, glm::vec3& vec) {
-	glUniform3fv(getUniform(name), 3, glm::value_ptr(vec));
+	glUniform3fv(getUniform(name), 1, glm::value_ptr(vec));
 }
 void ShaderProgram::setUniform4f(const char* name, glm::vec4& vec) {
-	glUniform4fv(getUniform(name), 4, glm::value_ptr(vec));
+	glUniform4fv(getUniform(name), 1, glm::value_ptr(vec));
 }
 // Double Uniforms
 void ShaderProgram::setUniform1d(const char* name, double& val) {
 	glUniform1dv(getUniform(name), 1, &val);
 }
 void ShaderProgram::setUniform2d(const char* name, glm::dvec2& val) {
-	glUniform2dv(getUniform(name), 2, glm::value_ptr(val));
+	glUniform2dv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform3d(const char* name, glm::dvec3& val) {
-	glUniform3dv(getUniform(name), 2, glm::value_ptr(val));
+	glUniform3dv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform4d(const char* name, glm::dvec4& val) {
-	glUniform4dv(getUniform(name), 2, glm::value_ptr(val));
+	glUniform4dv(getUniform(name), 1, glm::value_ptr(val));
 }
 // Integer Uniforms
 void ShaderProgram::setUniform1i(const char* name, int& val) {
 	glUniform1iv(getUniform(name), 1, &val);
 }
 void ShaderProgram::setUniform2i(const char* name, glm::ivec2& val) {
-	glUniform2iv(getUniform(name), 3, glm::value_ptr(val));
+	glUniform2iv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform3i(const char* name, glm::ivec3& val) {
-	glUniform3iv(getUniform(name), 3, glm::value_ptr(val));
+	glUniform3iv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform4i(const char* name, glm::ivec4& val) {
-	glUniform4iv(getUniform(name), 4, glm::value_ptr(val));
+	glUniform4iv(getUniform(name), 1, glm::value_ptr(val));
 }
 // Unsigned Integer Uniforms
 void ShaderProgram::setUniform1u(const char* name, unsigned int& val) {
 	glUniform1uiv(getUniform(name), 1, &val);
 }
 void ShaderProgram::setUniform2u(const char* name, glm::uvec2& val) {
-	glUniform2uiv(getUniform(name), 2, glm::value_ptr(val));
+	glUniform2uiv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform3u(const char* name, glm::uvec3& val) {
-	glUniform3uiv(getUniform(name), 3, glm::value_ptr(val));
+	glUniform3uiv(getUniform(name), 1, glm::value_ptr(val));
 }
 void ShaderProgram::setUniform4u(const char* name, glm::uvec4& val) {
-	glUniform4uiv(getUniform(name), 4, glm::value_ptr(val));
+	glUniform4uiv(getUniform(name), 1, glm::value_ptr(val));
 }
 // Matrix Uniforms
 void ShaderProgram::setUniformMat2(const char* name, glm::mat2& matrix) {
@@ -200,4 +200,66 @@ void ShaderProgram::setUniformMat3(const char* name, glm::mat3& matrix) {
 }
 void ShaderProgram::setUniformMat4(const char* name, glm::mat4& matrix) {
 	glUniformMatrix4fv(getUniform(name), 1, GL_FALSE, glm::value_ptr(matrix));
+}
+
+
+
+
+
+
+
+
+
+
+// Float Uniforms
+void ShaderProgram::setUniform1f(const char* name, float val) {
+	glUniform1f(getUniform(name), val);
+}
+void ShaderProgram::setUniform2f(const char* name, glm::vec2 val) {
+	glUniform2f(getUniform(name), val.x, val.y);
+}
+void ShaderProgram::setUniform3f(const char* name, glm::vec3 val) {
+	glUniform3f(getUniform(name), val.x, val.y, val.z);
+}
+void ShaderProgram::setUniform4f(const char* name, glm::vec4 val) {
+	glUniform4f(getUniform(name), val.x, val.y, val.z, val.w);
+}
+// Double Uniforms
+void ShaderProgram::setUniform1d(const char* name, double val) {
+	glUniform1d(getUniform(name), val);
+}
+void ShaderProgram::setUniform2d(const char* name, glm::dvec2 val) {
+	glUniform2d(getUniform(name), val.x, val.y);
+}
+void ShaderProgram::setUniform3d(const char* name, glm::dvec3 val) {
+	glUniform3d(getUniform(name), val.x, val.y, val.z);
+}
+void ShaderProgram::setUniform4d(const char* name, glm::dvec4 val) {
+	glUniform4d(getUniform(name), val.x, val.y, val.z, val.w);
+}
+// Integer Uniforms
+void ShaderProgram::setUniform1i(const char* name, int val) {
+	glUniform1i(getUniform(name), val);
+}
+void ShaderProgram::setUniform2i(const char* name, glm::ivec2 val) {
+	glUniform2i(getUniform(name), val.x, val.y);
+}
+void ShaderProgram::setUniform3i(const char* name, glm::ivec3 val) {
+	glUniform3i(getUniform(name), val.x, val.y, val.z);
+}
+void ShaderProgram::setUniform4i(const char* name, glm::ivec4 val) {
+	glUniform4i(getUniform(name), val.x, val.y, val.z, val.w);
+}
+// Unsigned Integer Uniforms
+void ShaderProgram::setUniform1u(const char* name, unsigned int val) {
+	glUniform1ui(getUniform(name), val);
+}
+void ShaderProgram::setUniform2u(const char* name, glm::uvec2 val) {
+	glUniform2ui(getUniform(name), val.x, val.y);
+}
+void ShaderProgram::setUniform3u(const char* name, glm::uvec3 val) {
+	glUniform3ui(getUniform(name), val.x, val.y, val.z);
+}
+void ShaderProgram::setUniform4u(const char* name, glm::uvec4 val) {
+	glUniform4ui(getUniform(name), val.x, val.y, val.z, val.w);
 }

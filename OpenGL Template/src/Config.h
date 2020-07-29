@@ -24,4 +24,4 @@ struct Config {
 	{}
 };
 
-Config& c();
+const Config& c();

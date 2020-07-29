@@ -1,6 +1,6 @@
 #include "Config.h"
 
-Config& c() {
-	static Config configData;
+const Config& c() {
+	static const Config configData;
 	return configData;
 }
